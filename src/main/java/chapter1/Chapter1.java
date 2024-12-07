@@ -9,6 +9,8 @@ public class Chapter1 {
 		
 		Integer[] reversed = reverseArray(numbers);
 		printArray(reversed);
+	
+		fizzBuzz(20);
 		
 		printDiamond(5);
 	}
@@ -32,6 +34,23 @@ public class Chapter1 {
 		}
 		
 		return reversedArray;
+	}
+	
+	private static void fizzBuzz(int maxCount) {
+		
+		for (int counter = 1; counter < maxCount + 1; counter++) {
+			if (counter % 3 == 0 && counter % 5 == 0) {
+				System.out.print(counter);
+				System.out.println(" = FizzBuzz");
+			} else if (counter % 3 == 0) {
+				System.out.print(counter);
+				System.out.println(" = Fizz");
+			} else if (counter % 5 == 0) {
+				System.out.print(counter);
+				System.out.println(" = Buzz");
+			}
+		}
+		System.out.println();
 	}
 	
 	private static void printDiamond(int size) {
