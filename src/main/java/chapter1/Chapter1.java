@@ -12,7 +12,7 @@ public class Chapter1 {
 	
 		fizzBuzz(20);
 		
-		printDiamond(5);
+		printDiamond(6);
 	}
 
 	private static void printArray(Integer[] array) {
@@ -40,52 +40,56 @@ public class Chapter1 {
 		
 		for (int counter = 1; counter < maxCount + 1; counter++) {
 			if (counter % 3 == 0 && counter % 5 == 0) {
-				System.out.print(counter);
-				System.out.println(" = FizzBuzz");
+				System.out.print("FizzBuzz = ");
+				System.out.println(counter);
 			} else if (counter % 3 == 0) {
-				System.out.print(counter);
-				System.out.println(" = Fizz");
+				System.out.print("Fizz = ");
+				System.out.println(counter);
 			} else if (counter % 5 == 0) {
-				System.out.print(counter);
-				System.out.println(" = Buzz");
+				System.out.print("Buzz = ");
+				System.out.println(counter);
 			}
 		}
 		System.out.println();
 	}
-	
+
 	private static void printDiamond(int size) {
 		
-		// upper half
-		for (int topCounter = 1; topCounter <= size; topCounter++) {
-			// compute and print leading spaces
-			for (int spaceCounter = 0; spaceCounter < (size - topCounter); spaceCounter++) {
-				System.out.print(" ");
-			}
-			// print number(s)
-			if (topCounter > 1) {
-				// filler spaces, not needed for the first iteration
-				System.out.print(topCounter);
-				for (int fillCounter = 0; fillCounter < ((topCounter * 2) - 3); fillCounter++) {
+		if (size < 10) {
+			// upper half
+			for (int topCounter = 1; topCounter <= size; topCounter++) {
+				// compute and print leading spaces
+				for (int spaceCounter = 0; spaceCounter < (size - topCounter); spaceCounter++) {
 					System.out.print(" ");
 				}
+				// print number(s)
+				if (topCounter > 1) {
+					System.out.print(topCounter);
+					// filler spaces, not needed for the first iteration
+					for (int fillCounter = 0; fillCounter < ((topCounter * 2) - 3); fillCounter++) {
+						System.out.print(" ");
+					}
+				}
+				System.out.println(topCounter);
 			}
-			System.out.println(topCounter);
-		}
-		// bottom half
-		for (int bottomCounter = (size - 1); bottomCounter > 0; bottomCounter--) {
-			// compute and print leading spaces
-			for (int spaceCounter2 = 0; spaceCounter2 < (size - bottomCounter); spaceCounter2++) {
-				System.out.print(" ");
-			}
-			// print number(s)
-			if (bottomCounter > 1) {
-				// filler spaces, not needed for the first iteration
-				System.out.print(bottomCounter);
-				for (int fillCounter2 = 0; fillCounter2 < ((bottomCounter * 2) - 3); fillCounter2++) {
+			// bottom half
+			for (int bottomCounter = (size - 1); bottomCounter > 0; bottomCounter--) {
+				// compute and print leading spaces
+				for (int spaceCounter2 = 0; spaceCounter2 < (size - bottomCounter); spaceCounter2++) {
 					System.out.print(" ");
 				}
+				// print number(s)
+				if (bottomCounter > 1) {
+					System.out.print(bottomCounter);
+					// filler spaces, not needed for the first iteration
+					for (int fillCounter2 = 0; fillCounter2 < ((bottomCounter * 2) - 3); fillCounter2++) {
+						System.out.print(" ");
+					}
+				}
+				System.out.println(bottomCounter);
 			}
-			System.out.println(bottomCounter);
+		} else {
+			System.out.println("Please provide a single-digit number.");
 		}
 	}
 }
