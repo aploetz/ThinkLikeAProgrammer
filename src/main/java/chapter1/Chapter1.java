@@ -12,7 +12,9 @@ public class Chapter1 {
 	
 		fizzBuzz(20);
 		
-		printDiamond(6);
+		printDiamond(5);
+		
+		printDiamondOutline(5);
 	}
 
 	private static void printArray(Integer[] array) {
@@ -52,8 +54,41 @@ public class Chapter1 {
 		}
 		System.out.println();
 	}
-
+	
 	private static void printDiamond(int size) {
+		
+		if (size < 10) {
+			// upper half
+			for (int topCounter = 1; topCounter <= size; topCounter++) {
+				// compute and print leading spaces
+				for (int spaceCounter = 0; spaceCounter < (size - topCounter); spaceCounter++) {
+					System.out.print(" ");
+				}
+				// print number(s)
+				for (int numCounter = 0; numCounter < ((topCounter * 2) - 1); numCounter++) {
+					System.out.print(topCounter);
+				}
+				System.out.println();
+			}
+			// bottom half
+			for (int bottomCounter = (size - 1); bottomCounter > 0; bottomCounter--) {
+				// compute and print leading spaces
+				for (int spaceCounter2 = 0; spaceCounter2 < (size - bottomCounter); spaceCounter2++) {
+					System.out.print(" ");
+				}
+				// print number(s)
+				for (int numCounter2 = 0; numCounter2 < ((bottomCounter * 2) - 1); numCounter2++) {
+					System.out.print(bottomCounter);
+				}
+				System.out.println();
+			}
+		} else {
+			System.out.println("Please provide a single-digit number.");
+		}
+		System.out.println();
+	}
+	
+	private static void printDiamondOutline(int size) {
 		
 		if (size < 10) {
 			// upper half
@@ -91,5 +126,6 @@ public class Chapter1 {
 		} else {
 			System.out.println("Please provide a single-digit number.");
 		}
+		System.out.println();
 	}
 }
