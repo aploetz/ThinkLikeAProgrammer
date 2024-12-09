@@ -1,5 +1,7 @@
 package chapter1;
 
+import java.util.Scanner;
+
 public class Chapter1 {
 
 	public static void main(String[] args) {
@@ -15,6 +17,8 @@ public class Chapter1 {
 		printDiamond(5);
 		
 		printDiamondOutline(5);
+		
+		readNumber();
 	}
 
 	private static void printArray(Integer[] array) {
@@ -127,5 +131,34 @@ public class Chapter1 {
 			System.out.println("Please provide a single-digit number.");
 		}
 		System.out.println();
+	}
+	
+	private static void readNumber() {
+		
+		Scanner inputScanner = new Scanner(System.in);
+		int number = 9999; 
+		
+		while (number != 0) {
+			System.out.println("Enter a number between 31 and 256,");
+			System.out.print("or zero (0) to quit: ");
+			
+			String inputStr = inputScanner.nextLine();
+			
+			try {
+				number = Integer.parseInt(inputStr);
+				
+				//if (number > 31 && number < 256) {
+				if (number > 31) {
+					System.out.printf("The character for ASCII code %d is %c\n", number, (char) number);
+				} else if (number != 0) {
+					System.out.println("Sorry, only numbers 32 or higher are permitted.");
+				}
+			} catch (NumberFormatException ex) {
+				System.out.println("Sorry, only numbers are permitted.");
+			}
+		}
+
+		inputScanner.close();
+		System.out.println("0 entered, exiting.");
 	}
 }
