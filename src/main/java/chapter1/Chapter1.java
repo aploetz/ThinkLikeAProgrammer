@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Chapter1 {
 
+	private static Scanner inputScanner;
 	public static void main(String[] args) {
 		
 		Integer[] numbers = {1, 2, 3, 4, 5};
@@ -17,8 +18,16 @@ public class Chapter1 {
 		printDiamond(5);
 		
 		printDiamondOutline(5);
+
+		// define scanner globally for the next two methods
+		Scanner inputScanner = new Scanner(System.in);
 		
-		readNumber();
+		readNumber(inputScanner);
+		
+		readName(inputScanner);
+		
+		// close the scanner
+		inputScanner.close();
 	}
 
 	private static void printArray(Integer[] array) {
@@ -133,13 +142,13 @@ public class Chapter1 {
 		System.out.println();
 	}
 	
-	private static void readNumber() {
+	private static void readNumber(Scanner inputScanner) {
 		
-		Scanner inputScanner = new Scanner(System.in);
+		//Scanner inputScanner = new Scanner(System.in);
 		int number = 9999; 
 		
 		while (number != 0) {
-			System.out.println("Enter a number between 31 and 256,");
+			System.out.println("Enter a number of 32 or greater,");
 			System.out.print("or zero (0) to quit: ");
 			
 			String inputStr = inputScanner.nextLine();
@@ -158,7 +167,24 @@ public class Chapter1 {
 			}
 		}
 
-		inputScanner.close();
+		//inputScanner.close();
 		System.out.println("0 entered, exiting.");
+	}
+	
+	public static void readName(Scanner inputScanner) {
+		
+		//Scanner inputScanner = new Scanner(System.in);
+		System.out.println("What is your name?");
+		String inputStr = inputScanner.nextLine();
+		
+		do {
+			System.out.printf("Hello %s!\n", inputStr);
+			
+			System.out.println("What is your name?");
+			inputStr = inputScanner.nextLine();			
+		} while (!inputStr.equals("exit"));
+		
+		//inputScanner.close();
+		System.out.println("Exiting.");
 	}
 }
