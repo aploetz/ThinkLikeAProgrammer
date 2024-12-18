@@ -14,7 +14,7 @@ public class Chapter1 {
 		printArray(reversed);
 	
 		fizzBuzz(20);
-		
+	
 		printDiamond(5);
 		
 		printDiamondOutline(5);
@@ -76,6 +76,25 @@ public class Chapter1 {
 				// compute and print leading spaces
 				for (int spaceCounter = 0; spaceCounter < (size - topCounter); spaceCounter++) {
 					System.out.print(" ");
+				}		System.out.print("Enter a number between 31 and 256: ");
+
+				Scanner inputScanner = new Scanner(System.in);
+				String inputStr = inputScanner.nextLine();
+				inputScanner.close();
+
+				try {
+					int number = Integer.parseInt(inputStr);
+					
+					//if (number > 31 && number < 256) {
+					if (number > 31) {
+						System.out.printf("The character for ASCII code %d is %c", number, (char) number);
+					} else {
+						System.out.println("Sorry, only numbers 32 or higher are permitted.");
+					}
+				} catch (NumberFormatException ex) {
+					System.out.println("Sorry, only numbers are permitted.");
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
 				}
 				// print number(s)
 				for (int numCounter = 0; numCounter < ((topCounter * 2) - 1); numCounter++) {
