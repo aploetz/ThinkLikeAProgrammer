@@ -196,7 +196,7 @@ public class Chapter1 {
 		System.out.println("What is your name?");
 		String inputStr = inputScanner.nextLine();
 		
-		do {
+ 		do {
 			System.out.printf("Hello %s!\n", inputStr);
 			
 			System.out.println("What is your name?");
