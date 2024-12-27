@@ -143,11 +143,8 @@ public class Chapter2 {
 	private static void validateUserFromFile(String username, String password) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader("data/password.csv"));
-			
 	    	BCryptPasswordEncoder pEncoder = new BCryptPasswordEncoder();
-	    	//String hashedPassword = pEncoder.encode(password);
 	    	boolean found = false;
-	    	
 	    	String line = reader.readLine();
 	    	
 	    	while (line != null) {
@@ -158,7 +155,6 @@ public class Chapter2 {
 	    			found = true;
 	    			String fileHashedPwd = columns[1];
 	    			
-	    			//if (fileHashedPwd.equals(hashedPassword)) {
 	    			if (pEncoder.matches(password, fileHashedPwd)) {
 	    				System.out.printf("User %s has valid credentials.\n", username);
 	    			} else {
