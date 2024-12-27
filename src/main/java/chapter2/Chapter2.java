@@ -40,7 +40,7 @@ public class Chapter2 {
 		
 		writeToPasswordFile("aaron", "Brewers82");
 		writeToPasswordFile("coriene", "loveBug22");
-		writeToPasswordFile("avery", "rumbleBoy14");
+		writeToPasswordFile("avery", "rumbleBoy58");
 		writeToPasswordFile("christian", "BHappy42");
 		writeToPasswordFile("emily", "chimPoKoMon58");
 		writeToPasswordFile("victoria", "ethanIsAwesome77");
