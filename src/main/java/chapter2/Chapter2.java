@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -49,6 +51,12 @@ public class Chapter2 {
 		validateUserFromFile("avery","blahblahblah");
 		System.out.println();
 		
+		writeToPasswordFileUnique("aaron", "Brewers82");
+		writeToPasswordFileUnique("coriene", "loveBug22");
+		writeToPasswordFileUnique("avery", "rumbleBoy58");
+		writeToPasswordFileUnique("coriene", "loveBug22");
+		writeToPasswordFileUnique("emily", "chimPoKoMon58");
+		writeToPasswordFileUnique("victoria", "ethanIsAwesome77");
 	}
 	
 	private static void writeListToFile(String filename, List<String> list) {
@@ -125,7 +133,7 @@ public class Chapter2 {
 			// open file with append == true
 			BufferedWriter writer = new BufferedWriter(new FileWriter("data/password.csv",true));
 
-	    	// Hash the password from the request body
+	    	// Hash the password
 	    	BCryptPasswordEncoder pEncoder = new BCryptPasswordEncoder();
 	    	String hashedPassword = pEncoder.encode(password);
 			
@@ -173,6 +181,55 @@ public class Chapter2 {
 		} catch (IOException ioex) {
 			System.out.println("Error occurred while reading:");
 			ioex.printStackTrace();			
+		}
+	}
+	
+	private static void writeToPasswordFileUnique(String username, String password) {
+
+		List<String> currentUsers = new ArrayList<>();
+
+		try {
+			
+			// open file reader
+			BufferedReader reader = new BufferedReader(new FileReader("data/passwordU.csv"));
+			String line = reader.readLine();
+			
+			while (line != null) {
+				String[] columns = line.split("[,]");
+				
+				currentUsers.add(columns[0]);
+				line = reader.readLine();
+			}
+			
+			reader.close();
+		} catch (FileNotFoundException fnfex) {
+			System.out.println("File was not found; must be first user. Adding...");
+		} catch (IOException ioex) {
+			System.out.println("Error occurred while writing:");
+			ioex.printStackTrace();
+		}
+		
+		
+		try {
+
+			if (currentUsers.contains(username)) {
+				System.out.printf("User %s exists, credentials not written.\n", username);
+			} else {
+				// open file with append == true
+				BufferedWriter writer = new BufferedWriter(new FileWriter("data/passwordU.csv",true));
+	
+		    	// Hash the password
+		    	BCryptPasswordEncoder pEncoder = new BCryptPasswordEncoder();
+		    	String hashedPassword = pEncoder.encode(password);
+				
+				writer.write(username + "," + hashedPassword + "\n");
+				writer.close();
+				
+				System.out.println(username + " written to password file.");
+			}
+		} catch (IOException ioex) {
+			System.out.println("Error occurred while writing:");
+			ioex.printStackTrace();
 		}
 	}
 }
