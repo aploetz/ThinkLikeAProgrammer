@@ -36,11 +36,6 @@ public class Chapter3 {
 		return reversed.toString();
 	}
 	
-	private static boolean isUppercaseReference(Character inputChar) {
-		
-		return Character.isUpperCase(inputChar);
-	}
-
 	private static boolean isUppercasePrimitive(char inputChar) {
 		
 		int asciiCode = (int) inputChar;
@@ -50,6 +45,11 @@ public class Chapter3 {
 		}
 		
 		return false; 
+	}
+
+	private static boolean isUppercaseReference(Character inputChar) {
+		
+		return Character.isUpperCase(inputChar);
 	}
 
 }
