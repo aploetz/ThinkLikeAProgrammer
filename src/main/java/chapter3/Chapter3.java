@@ -66,6 +66,20 @@ public class Chapter3 {
 		System.out.printf("Is %s valid? %b\n",state6,isStateCodeValidRegex(state6));
 
 		System.out.println();
+		
+		String hockeyTeam1 = "city: St. Paul, MN | team: Wild | location: Minnesota | colors: Green, White, Red";
+		String hockeyTeam2 = "city: Toronto, ON | team: Maple Leafs | location: Toronto | colors: Blue, White";
+		String hockeyTeam3 = "city: Sunrise, FL | team: Panthers | location: Florida | colors: Red, Blue, Brown";
+		String hockeyTeam4 = "city: Dallas, TX | team: Stars | location: Dallas | colors: Green, Black, Silver";
+		String hockeyTeam5 = "city: Pittsburgh, PA | team: Penguins | location: Pittsburgh | colors: Yellow, White, Black";
+		
+		System.out.println(getFullTeamName(hockeyTeam1));
+		System.out.println(getFullTeamName(hockeyTeam2));
+		System.out.println(getFullTeamName(hockeyTeam3));
+		System.out.println(getFullTeamName(hockeyTeam4));
+		System.out.println(getFullTeamName(hockeyTeam5));
+		
+		System.out.println();
 	}
 	
 	private static String reverseString(String inputStr) {
@@ -151,5 +165,34 @@ public class Chapter3 {
 		Matcher stateMatcher = statePattern.matcher(state);
 		
 		return stateMatcher.matches();
+	}
+	
+	private static String getValue(String kvPair) {
+		int colonPosition = kvPair.indexOf(':');
+		
+		return kvPair.substring(colonPosition + 2).trim();
+	}
+	
+	private static String getFullTeamName(String teamData) {
+		StringBuilder returnVal = new StringBuilder();
+		String[] teamDataArray = teamData.split("[|]");
+		String name = "";
+		String location = "";
+		
+		for (int index = 0; index < teamDataArray.length; index++) {
+			if (teamDataArray[index].contains("team:")) {
+				name = getValue(teamDataArray[index]);
+			}
+			
+			if (teamDataArray[index].contains("location:")) {
+				location = getValue(teamDataArray[index]);
+			}
+		}
+		
+		returnVal.append(location);
+		returnVal.append(" ");
+		returnVal.append(name);
+		
+		return returnVal.toString();
 	}
 }
