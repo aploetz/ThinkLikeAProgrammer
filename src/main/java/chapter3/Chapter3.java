@@ -176,16 +176,16 @@ public class Chapter3 {
 	private static String getFullTeamName(String teamData) {
 		StringBuilder returnVal = new StringBuilder();
 		String[] teamDataArray = teamData.split("[|]");
-		String name = "";
-		String location = "";
+		StringBuilder name = new StringBuilder();
+		StringBuilder location = new StringBuilder();
 		
 		for (int index = 0; index < teamDataArray.length; index++) {
 			if (teamDataArray[index].contains("team:")) {
-				name = getValue(teamDataArray[index]);
+				name.append(getValue(teamDataArray[index]));
 			}
 			
 			if (teamDataArray[index].contains("location:")) {
-				location = getValue(teamDataArray[index]);
+				location.append(getValue(teamDataArray[index]));
 			}
 		}
 		
