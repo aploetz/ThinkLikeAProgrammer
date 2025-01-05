@@ -1,7 +1,12 @@
 package chapter3;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Chapter3 {
 
+	private static final int STATE_LENGTH = 2;
+	
 	public static void main(String[] args) {
 
 		String phrase = "Minnesota Wild Hockey";
@@ -37,6 +42,30 @@ public class Chapter3 {
 
 		System.out.println();
 
+		String state1 = "Ia";
+		String state2 = "MN";
+		String state3 = "Wis";
+		String state4 = "AK";
+		String state5 = "TEX";
+		String state6 = "nD";
+		
+		System.out.printf("Is %s valid? %b\n",state1,isStateCodeValid(state1));
+		System.out.printf("Is %s valid? %b\n",state2,isStateCodeValid(state2));
+		System.out.printf("Is %s valid? %b\n",state3,isStateCodeValid(state3));
+		System.out.printf("Is %s valid? %b\n",state4,isStateCodeValid(state4));
+		System.out.printf("Is %s valid? %b\n",state5,isStateCodeValid(state5));
+		System.out.printf("Is %s valid? %b\n",state6,isStateCodeValid(state6));
+
+		System.out.println();
+		
+		System.out.printf("Is %s valid? %b\n",state1,isStateCodeValidRegex(state1));
+		System.out.printf("Is %s valid? %b\n",state2,isStateCodeValidRegex(state2));
+		System.out.printf("Is %s valid? %b\n",state3,isStateCodeValidRegex(state3));
+		System.out.printf("Is %s valid? %b\n",state4,isStateCodeValidRegex(state4));
+		System.out.printf("Is %s valid? %b\n",state5,isStateCodeValidRegex(state5));
+		System.out.printf("Is %s valid? %b\n",state6,isStateCodeValidRegex(state6));
+
+		System.out.println();
 	}
 	
 	private static String reverseString(String inputStr) {
@@ -94,5 +123,33 @@ public class Chapter3 {
 		} else {
 			return "INVALID NUMBER, 10 digits only!";			
 		}
+	}
+	
+	private static boolean isStateCodeValid(String state) {
+		// US state codes are only valid if they are:
+		//  - 2 characters in length
+		//  - all uppercase
+		boolean returnVal = false;
+		
+		if (state.length() == STATE_LENGTH) {
+			for (int counter = 0; counter < STATE_LENGTH; counter++) {
+				if (Character.isUpperCase(state.charAt(counter))) {
+					returnVal = true;
+				} else {
+					returnVal = false;
+					break;
+				}
+			}
+		}
+
+		return returnVal;
+	}
+	
+	private static boolean isStateCodeValidRegex(String state) {
+
+		Pattern statePattern = Pattern.compile("[A-Z]{2}");
+		Matcher stateMatcher = statePattern.matcher(state);
+		
+		return stateMatcher.matches();
 	}
 }
