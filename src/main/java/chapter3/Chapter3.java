@@ -66,7 +66,17 @@ public class Chapter3 {
 		System.out.printf("Is %s valid? %b\n",state6,isStateCodeValidRegex(state6));
 
 		System.out.println();
+
+		String word1 = "COBOL";
+		String word2 = "madam";
+		String word3 = "rotator";
 		
+		System.out.printf("Is %s a palindrome? %b\n",word1,isPalindrome(word1));
+		System.out.printf("Is %s a palindrome? %b\n",word2,isPalindrome(word2));
+		System.out.printf("Is %s a palindrome? %b\n",word3,isPalindrome(word3));
+
+		System.out.println();
+
 		String hockeyTeam1 = "city: St. Paul, MN | team: Wild | location: Minnesota | colors: Green, White, Red";
 		String hockeyTeam2 = "city: Toronto, ON | team: Maple Leafs | location: Toronto | colors: Blue, White";
 		String hockeyTeam3 = "city: Sunrise, FL | team: Panthers | location: Florida | colors: Red, Blue, Brown";
@@ -165,6 +175,20 @@ public class Chapter3 {
 		Matcher stateMatcher = statePattern.matcher(state);
 		
 		return stateMatcher.matches();
+	}
+	
+	private static boolean isPalindrome(String word) {
+		
+		for (int index = 0; index < (word.length() / 2); index++) {
+			char fromFront = word.charAt(index);
+			char fromBack = word.charAt(word.length() - 1 - index);
+			
+			if (fromFront != fromBack) {
+				return false;
+			}
+		}
+		
+		return true;
 	}
 	
 	private static String getValue(String kvPair) {
