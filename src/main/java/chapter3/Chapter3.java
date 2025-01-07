@@ -168,7 +168,7 @@ public class Chapter3 {
 
 		return returnVal;
 	}
-	
+
 	private static boolean isStateCodeValidRegex(String state) {
 
 		Pattern statePattern = Pattern.compile("[A-Z]{2}");
