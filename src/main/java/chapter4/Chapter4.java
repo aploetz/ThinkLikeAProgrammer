@@ -25,9 +25,9 @@ public class Chapter4 {
 		
 		System.out.println();
 
-		int negativeA = makeNegative(numberA);
-		int negativeC = makeNegative(numberC);
-		int negativeE = makeNegative(numberE);
+		int negativeA = applyNegative(numberA);
+		int negativeC = applyNegative(numberC);
+		int negativeE = applyNegative(numberE);
 		
 		System.out.printf("makeNegative(%d) == %d\n", numberA, negativeA);
 		System.out.printf("makeNegative(%d) == %d\n", numberC, negativeC);
@@ -89,24 +89,24 @@ public class Chapter4 {
 		return returnVal;
 	}
 	
-	private static int makeNegative(int number) {
+	private static int applyNegative(int number) {
 		
 		return multiply(number,-1);
 	}
 	
 	private static int subtract(int numX, int numY) {
 		
-		return numX + makeNegative(numY);
+		return numX + applyNegative(numY);
 	}
 	
 	// absolute value
-	private static int abs(int numX) {
+	private static int abs(int number) {
 		
-		if (numX < 0) {
-			return makeNegative(numX);
+		if (number < 0) {
+			return applyNegative(number);
 		}
 		
-		return numX;
+		return number;
 	}
 	
 	private static int divide(int dividend, int divisor) {
@@ -130,7 +130,7 @@ public class Chapter4 {
 		}
 		
 		if (resultShouldBeNegative) {
-			return makeNegative(quotient);
+			return applyNegative(quotient);
 		}
 		
 		return quotient;
