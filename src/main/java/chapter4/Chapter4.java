@@ -58,15 +58,22 @@ public class Chapter4 {
 		System.out.printf("%d %c %d == %d\n", numberB, (char)247, numberA, bDividedByA);
 		
 		System.out.println();
+
+		System.out.printf("Is %d even? %b\n", 3, isEven(3));
+		System.out.printf("Is %d even? %b\n", 48, isEven(48));
+		System.out.printf("Is %d even? %b\n", 16, isEven(16));
+		System.out.printf("Is %d even? %b\n", 62, isEven(62));
+		System.out.printf("Is %d even? %b\n", 64, isEven(64));
+
+		System.out.println();
 		
 		System.out.printf("Is %d a valid power of 2? %b\n", 3, isPowerOfTwo(3));
 		System.out.printf("Is %d a valid power of 2? %b\n", 48, isPowerOfTwo(48));
 		System.out.printf("Is %d a valid power of 2? %b\n", 16, isPowerOfTwo(16));
 		System.out.printf("Is %d a valid power of 2? %b\n", 62, isPowerOfTwo(62));
 		System.out.printf("Is %d a valid power of 2? %b\n", 64, isPowerOfTwo(64));
-		
+				
 		System.out.println();
-
 	}
 
 	public static int multiply(int numX, int numY) {
@@ -144,6 +151,14 @@ public class Chapter4 {
 		return quotient;
 	}
 	
+	private static boolean isEven(int number) {
+		
+		if (number % 2 == 0) {
+			return true;
+		}
+		
+		return false;
+	}
 
 	private static boolean isPowerOfTwo(int number) {
 
