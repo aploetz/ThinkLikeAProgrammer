@@ -58,6 +58,14 @@ public class Chapter4 {
 		System.out.printf("%d %c %d == %d\n", numberB, (char)247, numberA, bDividedByA);
 		
 		System.out.println();
+		
+		System.out.printf("Is %d a valid power of 2? %b\n", 3, isPowerOfTwo(3));
+		System.out.printf("Is %d a valid power of 2? %b\n", 48, isPowerOfTwo(48));
+		System.out.printf("Is %d a valid power of 2? %b\n", 16, isPowerOfTwo(16));
+		System.out.printf("Is %d a valid power of 2? %b\n", 62, isPowerOfTwo(62));
+		System.out.printf("Is %d a valid power of 2? %b\n", 64, isPowerOfTwo(64));
+		
+		System.out.println();
 
 	}
 
@@ -135,4 +143,25 @@ public class Chapter4 {
 		
 		return quotient;
 	}
+	
+
+	private static boolean isPowerOfTwo(int number) {
+
+		boolean returnVal = false;
+		
+		if (number == 2) {
+			// number is equal to 2
+			returnVal = true;
+		} else if (number % 2 != 0) {
+			// number is odd
+			returnVal = false;
+		} else {
+			// number is not 2 and is not odd,
+			// divide number by 2 and check again
+			returnVal = isPowerOfTwo(divide(number,2));
+		}
+		
+		return returnVal;
+	}
+
 }
