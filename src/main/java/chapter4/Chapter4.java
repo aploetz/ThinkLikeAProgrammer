@@ -167,7 +167,7 @@ public class Chapter4 {
 		if (number == 2) {
 			// number is equal to 2
 			returnVal = true;
-		} else if (number % 2 != 0) {
+		} else if (!isEven(number)) {
 			// number is odd
 			returnVal = false;
 		} else {
