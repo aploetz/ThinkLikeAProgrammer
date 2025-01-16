@@ -199,18 +199,18 @@ public class Chapter4 {
 
 	public static int highestOrderBit(int number) {
 		int value = 0;
-		double divisor = 0.5;
+		int divisor = 1;
 		
-		if (number == 0) {
-			return 0;
+		if (number == 0 || number == 1) {
+			return number;
 		}
 		
 		while (value != 1) {
-			divisor = divisor *2;
-			value = number / (int) divisor;
+			divisor = multiply(divisor, 2);
+			value = divide(number, divisor);
 		}
 		
-		return (int) divisor;
+		return divisor;
 	}
 	
 	public static boolean isBitFlipped(int number, int bit)
