@@ -72,8 +72,26 @@ public class Chapter4 {
 		System.out.printf("Is %d a valid power of 2? %b\n", 16, isPowerOfTwo(16));
 		System.out.printf("Is %d a valid power of 2? %b\n", 62, isPowerOfTwo(62));
 		System.out.printf("Is %d a valid power of 2? %b\n", 64, isPowerOfTwo(64));
-				
+
 		System.out.println();
+
+		System.out.printf("The highest order bit of %d is %d\n", 12, highestOrderBit(12));
+		
+		System.out.println();
+
+		System.out.printf("Error# %d - %s", 2, getErrorMessages(2));
+		System.out.printf("Error# %d - %s", 8, getErrorMessages(8));
+		System.out.printf("Error# %d - %s", 10, getErrorMessages(10));
+		System.out.printf("Error# %d - %s", 5, getErrorMessages(5));
+		
+		System.out.println();
+		
+		for (int counter = 1; counter <= 10; counter++) {
+			System.out.printf("Fibanacci number of %d == %d\n", counter, computeFibonacci(counter - 1));
+		}
+		
+		System.out.println();
+		
 	}
 
 	public static int multiply(int numX, int numY) {
@@ -179,4 +197,84 @@ public class Chapter4 {
 		return returnVal;
 	}
 
+	public static int highestOrderBit(int number) {
+		int value = 0;
+		double divisor = 0.5;
+		
+		if (number == 0) {
+			return 0;
+		}
+		
+		while (value != 1) {
+			divisor = divisor *2;
+			value = number / (int) divisor;
+		}
+		
+		return (int) divisor;
+	}
+	
+	public static boolean isBitFlipped(int number, int bit)
+	{
+		boolean returnVal = false;
+		int value = number;
+		int highBit = 0;
+		
+		do {
+			value -= highBit;
+			highBit = highestOrderBit(value);
+		} while (highBit > bit);
+		
+		if (highBit == bit) {
+			returnVal = true;
+		}
+		
+		return returnVal;
+	}
+	
+	private static String getErrorMessages(int errorNumber) {
+		
+		final int UNKNOWN_ERROR = 1;
+		final int DIVIDE_BY_ZERO_ERROR = 2;
+		final int INVALID_DATA_TYPE = 4;
+		final Integer PARSING_ERROR = 8;
+
+		StringBuilder returnVal = new StringBuilder();
+		
+		if (isBitFlipped(errorNumber, PARSING_ERROR)) {
+			returnVal.append("PARSING_ERROR, ");
+		}
+
+		if (isBitFlipped(errorNumber, INVALID_DATA_TYPE)) {
+			returnVal.append("INVALID_DATA_TYPE, ");
+		}
+
+		if (isBitFlipped(errorNumber, DIVIDE_BY_ZERO_ERROR)) {
+			returnVal.append("DIVIDE_BY_ZERO_ERROR, ");
+		}
+
+		if (isBitFlipped(errorNumber, UNKNOWN_ERROR)) {
+			returnVal.append("UNKNOWN_ERROR, ");
+		}
+
+		if (returnVal.length() > 0) {
+			if (returnVal.charAt(returnVal.length() - 2) == ',') {
+				return returnVal.substring(0,returnVal.length() - 2) + "\n";
+			} else {
+				returnVal.append("\n");
+			}
+		} else {
+			returnVal.append("\n");
+		}
+		
+		return returnVal.toString();
+	}
+	
+	public static long computeFibonacci(long number) {
+		
+		if (number == 0 || number == 1) {
+			return number;
+		} else {
+			return computeFibonacci(number - 1) + computeFibonacci(number - 2);
+		}
+	}
 }
