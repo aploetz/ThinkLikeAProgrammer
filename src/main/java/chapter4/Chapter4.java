@@ -220,8 +220,7 @@ public class Chapter4 {
 		return divisor;
 	}
 	
-	public static boolean isBitFlipped(int number, int bit)
-	{
+	public static boolean isBitFlipped(int number, int bit) {
 		boolean returnVal = false;
 		int value = number;
 		int highBit = 0;
