@@ -75,7 +75,14 @@ public class Chapter4 {
 
 		System.out.println();
 
+		System.out.printf("The highest order bit of %d is %d\n", 7, highestOrderBit(7));
 		System.out.printf("The highest order bit of %d is %d\n", 12, highestOrderBit(12));
+		System.out.printf("The highest order bit of %d is %d\n", 17, highestOrderBit(17));
+		
+		System.out.println();
+
+		System.out.printf("The %d bit of %d is %b\n", 4, 12, isBitFlipped(12, 4));
+		System.out.printf("The %d bit of %d is %b\n", 2, 12, isBitFlipped(12, 2));
 		
 		System.out.println();
 
@@ -86,11 +93,11 @@ public class Chapter4 {
 		
 		System.out.println();
 		
-		for (int counter = 1; counter <= 10; counter++) {
-			System.out.printf("Fibanacci number of %d == %d\n", counter, computeFibonacci(counter - 1));
-		}
-		
-		System.out.println();
+		//for (int counter = 1; counter <= 10; counter++) {
+		//	System.out.printf("Fibanacci number of %d == %d\n", counter, computeFibonacci(counter - 1));
+		//}
+		//
+		//System.out.println();
 		
 	}
 
