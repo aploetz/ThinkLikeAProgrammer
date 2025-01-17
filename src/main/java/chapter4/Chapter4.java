@@ -242,7 +242,7 @@ public class Chapter4 {
 		final int UNKNOWN_ERROR = 1;
 		final int DIVIDE_BY_ZERO_ERROR = 2;
 		final int INVALID_DATA_TYPE = 4;
-		final Integer PARSING_ERROR = 8;
+		final int PARSING_ERROR = 8;
 
 		StringBuilder returnVal = new StringBuilder();
 		
