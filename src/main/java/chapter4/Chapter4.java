@@ -29,9 +29,9 @@ public class Chapter4 {
 		int negativeC = applyNegative(numberC);
 		int negativeE = applyNegative(numberE);
 		
-		System.out.printf("makeNegative(%d) == %d\n", numberA, negativeA);
-		System.out.printf("makeNegative(%d) == %d\n", numberC, negativeC);
-		System.out.printf("makeNegative(%d) == %d\n", numberE, negativeE);
+		System.out.printf("applyNegative(%d) == %d\n", numberA, negativeA);
+		System.out.printf("applyNegative(%d) == %d\n", numberC, negativeC);
+		System.out.printf("applyNegative(%d) == %d\n", numberE, negativeE);
 
 		System.out.println();
 
@@ -92,12 +92,6 @@ public class Chapter4 {
 		System.out.printf("Error# %d - %s", 5, getErrorMessages(5));
 		
 		System.out.println();
-		
-		//for (int counter = 1; counter <= 10; counter++) {
-		//	System.out.printf("Fibanacci number of %d == %d\n", counter, computeFibonacci(counter - 1));
-		//}
-		//
-		//System.out.println();
 		
 	}
 
@@ -224,6 +218,7 @@ public class Chapter4 {
 		boolean returnVal = false;
 		int value = number;
 		int highBit = 0;
+		//String num = Integer.toBinaryString(number);
 		
 		do {
 			value -= highBit;
