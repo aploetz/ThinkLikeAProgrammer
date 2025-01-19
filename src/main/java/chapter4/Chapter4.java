@@ -257,6 +257,7 @@ public class Chapter4 {
 			returnVal.append("UNKNOWN_ERROR, ");
 		}
 
+		// remove last comma and add a line break
 		if (returnVal.length() > 0) {
 			if (returnVal.charAt(returnVal.length() - 2) == ',') {
 				return returnVal.substring(0,returnVal.length() - 2) + "\n";
