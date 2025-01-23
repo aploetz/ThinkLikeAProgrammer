@@ -43,14 +43,18 @@ public class Chapter5 {
 		directions.addStep(step8);
 		directions.addStep(step9);
 		
-		Step currentStep = step1;
-		
-		while (currentStep != null) {
-			System.out.printf("%s\n", currentStep.getDescription());
-			currentStep = currentStep.getNextStep();
-		}
+		printDirections(directions);
 		
 		System.out.println();
 	}
 
+	private static void printDirections(LinkedList directions) {
+
+		Step currentStep = directions.getFirstStep();
+
+		while (currentStep != null) {
+			System.out.printf("%s\n", currentStep.getDescription());
+			currentStep = currentStep.getNextStep();
+		}
+	}
 }

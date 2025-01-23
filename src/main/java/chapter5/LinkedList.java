@@ -15,7 +15,8 @@ public class LinkedList {
 			currentLast.setNextStep(step);
 			lastStep = step;
 		} else {
-			setFirstStep(step);
+			firstStep = step;
+			lastStep = step;
 		}
 		
 		stepCount++;
@@ -23,6 +24,10 @@ public class LinkedList {
 	
 	public Step getFirstStep() {
 		return firstStep;
+	}
+	
+	public Step getLastStep() {
+		return lastStep;
 	}
 	
 	public Step removeStep(UUID id) {
@@ -55,11 +60,5 @@ public class LinkedList {
 		}
 		
 		return returnVal;
-	}
-	
-	private void setFirstStep(Step step) {
-		
-		firstStep = step;
-		lastStep = step;
 	}
 }
