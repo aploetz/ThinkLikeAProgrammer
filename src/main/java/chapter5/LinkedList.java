@@ -13,12 +13,11 @@ public class LinkedList {
 		if (stepCount > 0) {
 			Step currentLast = lastStep;
 			currentLast.setNextStep(step);
-			lastStep = step;
 		} else {
 			firstStep = step;
-			lastStep = step;
 		}
 		
+		lastStep = step;
 		stepCount++;
 	}
 	
