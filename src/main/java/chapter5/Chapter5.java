@@ -6,6 +6,29 @@ public class Chapter5 {
 
 	public static void main(String[] args) {
 
+		Stack truckStack = new Stack(8);
+		truckStack.add("41A - Housewares");
+		truckStack.add("22F - Personal Care");
+		truckStack.add("93T - Toys and Games");
+		truckStack.add("18J - Electronics");
+		truckStack.add("18K - Electronics");
+		truckStack.add("81D - Grocery (non-perishable)");
+
+		System.out.printf("Next pallet is %s\n", truckStack.peek());
+		
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		System.out.printf("Unloading %s\n", truckStack.pop());
+
+		System.out.printf("Next pallet is %s\n", truckStack.peek());
+
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		System.out.printf("Unloading %s\n", truckStack.pop());
+		
+		System.out.println();
+	
 		Queue takeoff = new Queue(10);
 		System.out.printf("Routing %s to takeoff runway.\n", takeoff.enqueue("DL2150"));
 		System.out.printf("Routing %s to takeoff runway.\n", takeoff.enqueue("AA1822"));
