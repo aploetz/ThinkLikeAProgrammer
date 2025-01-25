@@ -33,7 +33,7 @@ public class Stack {
 		}
 	}
 	
-	public void add(String pallet) {
+	public void push(String pallet) {
 		
 		if (palletCount < maxCount) {
 			pallets[palletCount] = pallet;

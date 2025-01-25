@@ -7,12 +7,12 @@ public class Chapter5 {
 	public static void main(String[] args) {
 
 		Stack truckStack = new Stack(8);
-		truckStack.add("41A - Housewares");
-		truckStack.add("22F - Personal Care");
-		truckStack.add("93T - Toys and Games");
-		truckStack.add("18J - Electronics");
-		truckStack.add("18K - Electronics");
-		truckStack.add("81D - Grocery (non-perishable)");
+		truckStack.push("41A - Housewares");
+		truckStack.push("22F - Personal Care");
+		truckStack.push("93T - Toys and Games");
+		truckStack.push("18J - Electronics");
+		truckStack.push("18K - Electronics");
+		truckStack.push("81D - Grocery (non-perishable)");
 
 		System.out.printf("Next pallet is %s\n", truckStack.peek());
 		
