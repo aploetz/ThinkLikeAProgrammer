@@ -29,7 +29,7 @@ public class Chapter6 {
 	private static boolean isValidPhoneNumber(String number, Pattern pattern) {
 		
 		Matcher phoneMatcher = pattern.matcher(number);
-		return phoneMatcher.find();
+		return phoneMatcher.matches();
 	}
 
 }
