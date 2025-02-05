@@ -68,6 +68,7 @@ public class Chapter6 {
 				computeToll(car3));
 		System.out.printf("The toll for the %s %s is $%s\n", cycle1.getMake(), cycle1.getModel(),
 				computeToll(cycle1));
+
 	}
 	
 	private static boolean isValidPhoneNumber(String number, Pattern pattern) {

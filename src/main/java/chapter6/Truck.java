@@ -10,7 +10,7 @@ public class Truck extends MotorVehicle {
 		this.setLicensePlate(licensePlate);
 		this.setMake(make);
 		this.setModel(model);
-		this.setAxels(axels);
+		this.axels = axels;
 		this.cargoCapLbs = cargoCapLbs;
 	}
 		
