@@ -53,8 +53,15 @@ public class Chapter6 {
 		String address2 = "034.10.2.7";
 		String address3 = "192.168.10.101";
 		String address4 = "33.71.304.88";
+		String address5 = "192.168.0.1";
+		String address6 = "10.0.0.255";
+		String address7 = "255.255.255.255";
+		String address8 = "192.168.0.256";
+		String address9 = "192.168.0";
+		String address10 = ".192.168.0.1";
+		String address11 = "192.168.0.01";
 		
-		Pattern ipV4Pattern = Pattern.compile("^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9]).?){4}$");
+		Pattern ipV4Pattern = Pattern.compile("^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])\\.?\\b){4}$");
 
 		System.out.printf("is %s a valid IPv4 address? %b\n", address1,
 				isValidIPv4(address1, ipV4Pattern));
@@ -64,6 +71,20 @@ public class Chapter6 {
 				isValidIPv4(address3, ipV4Pattern));
 		System.out.printf("is %s a valid IPv4 address? %b\n", address4,
 				isValidIPv4(address4, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address5,
+				isValidIPv4(address5, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address6,
+				isValidIPv4(address6, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address7,
+				isValidIPv4(address7, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address8,
+				isValidIPv4(address8, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address9,
+				isValidIPv4(address9, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address10,
+				isValidIPv4(address10, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address11,
+				isValidIPv4(address11, ipV4Pattern));
 				
 		System.out.println();
 		
