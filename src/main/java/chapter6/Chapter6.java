@@ -50,16 +50,13 @@ public class Chapter6 {
 		System.out.println();
 		
 		String address1 = "127.0.0.1";
-		String address2 = "034.10.2.7";
-		String address3 = "192.168.10.101";
+		String address2 = "192.168.10.101";
+		String address3 = "034.10.2.7";
 		String address4 = "33.71.304.88";
-		String address5 = "192.168.0.1";
-		String address6 = "10.0.0.255";
-		String address7 = "255.255.255.255";
-		String address8 = "192.168.0.256";
-		String address9 = "192.168.0";
-		String address10 = ".192.168.0.1";
-		String address11 = "192.168.0.01";
+		String address5 = "192.168.0.256";
+		String address6 = "192.168.0";
+		String address7 = ".192.168.0.1";
+		String address8 = "192.168.0.01";
 		
 		Pattern ipV4Pattern = Pattern.compile("^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])\\.?\\b){4}$");
 
@@ -79,12 +76,6 @@ public class Chapter6 {
 				isValidIPv4(address7, ipV4Pattern));
 		System.out.printf("is %s a valid IPv4 address? %b\n", address8,
 				isValidIPv4(address8, ipV4Pattern));
-		System.out.printf("is %s a valid IPv4 address? %b\n", address9,
-				isValidIPv4(address9, ipV4Pattern));
-		System.out.printf("is %s a valid IPv4 address? %b\n", address10,
-				isValidIPv4(address10, ipV4Pattern));
-		System.out.printf("is %s a valid IPv4 address? %b\n", address11,
-				isValidIPv4(address11, ipV4Pattern));
 				
 		System.out.println();
 		
@@ -122,8 +113,8 @@ public class Chapter6 {
 	}
 	
 	private static boolean isValidIPv4(String ipAddress, Pattern pattern) {
-		Matcher passwordMatcher = pattern.matcher(ipAddress);
-		return passwordMatcher.matches();
+		Matcher addressMatcher = pattern.matcher(ipAddress);
+		return addressMatcher.matches();
 	}
 
 	private static BigDecimal computeToll(MotorVehicle vehicle) {
