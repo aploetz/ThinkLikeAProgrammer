@@ -49,6 +49,24 @@ public class Chapter6 {
 		
 		System.out.println();
 		
+		String address1 = "127.0.0.1";
+		String address2 = "034.10.2.7";
+		String address3 = "192.168.10.101";
+		String address4 = "33.71.304.88";
+		
+		Pattern ipV4Pattern = Pattern.compile("^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9]).?){4}$");
+
+		System.out.printf("is %s a valid IPv4 address? %b\n", address1,
+				isValidIPv4(address1, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address2,
+				isValidIPv4(address2, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address3,
+				isValidIPv4(address3, ipV4Pattern));
+		System.out.printf("is %s a valid IPv4 address? %b\n", address4,
+				isValidIPv4(address4, ipV4Pattern));
+				
+		System.out.println();
+		
 		Car car1 = new Car("ABM-223", "Ford", "Mustang");
 		Car car2 = new Car("ILVBEER", "Hyundai", "Ioniq 5");
 		Car car3 = new Car("TSD-915", "Ford", "Fusion");
@@ -79,6 +97,11 @@ public class Chapter6 {
 	
 	private static boolean isValidPassword(String password, Pattern pattern) {
 		Matcher passwordMatcher = pattern.matcher(password);
+		return passwordMatcher.matches();
+	}
+	
+	private static boolean isValidIPv4(String ipAddress, Pattern pattern) {
+		Matcher passwordMatcher = pattern.matcher(ipAddress);
 		return passwordMatcher.matches();
 	}
 
