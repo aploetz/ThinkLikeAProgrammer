@@ -25,6 +25,44 @@ public class Chapter7 {
 		traverseHistoryBackward(browserHistory);
 
 		System.out.println();
+		
+		Patient[] patients = new Patient[5];
+
+		patients[0] =  new Patient("Paul",3);
+		patients[1] =  new Patient("Jenny",2);
+		patients[2] =  new Patient("Tom",8);
+		patients[3] =  new Patient("Jamie",1);
+		patients[4] =  new Patient("Tiffany",11);
+
+		//MedicalHeapAaron medQueue = new MedicalHeapAaron(patients,5);
+		MedicalHeapJava medQueue = new MedicalHeapJava(patients);
+		System.out.printf("Patient priority: %s\n",medQueue);
+		
+		medQueue.push(new Patient("Robert",4));
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		medQueue.push(new Patient("Royce",5));
+		System.out.printf("Patient priority: %s\n",medQueue);
+		
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
+		System.out.printf("Patient priority: %s\n",medQueue);
+
+		System.out.println();
 
 	}
 	
