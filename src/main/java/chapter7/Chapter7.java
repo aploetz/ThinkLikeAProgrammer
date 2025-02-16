@@ -23,6 +23,31 @@ public class Chapter7 {
 		
 		traverseHistoryForward(browserHistory);
 		traverseHistoryBackward(browserHistory);
+		
+		System.out.println();
+
+		Node fruit1 = new Node(0, "apple");
+		Node fruit2 = new Node(1, "banana");
+		Node fruit3 = new Node(2, "orange");
+		Node fruit4 = new Node(3, "grape");
+		Node fruit5 = new Node(4, "grapefruit");
+		
+		BinaryTree tree = new BinaryTree();
+		
+		tree.insert(fruit1);
+		tree.insert(fruit2);
+		tree.insert(fruit3);
+		tree.insert(fruit4);
+		tree.insert(fruit5);
+		
+		// find id 1 - banana
+		System.out.printf("Find by key %d = %s\n", 1, tree.find(1).getName());
+		// find id 2 - orange
+		System.out.printf("Find by key %d = %s\n", 2, tree.find(2).getName());
+		// find id 7
+		System.out.printf("Find by key %d = %s\n", 7, tree.find(7).getName());
+		// find id 0 - apple
+		System.out.printf("Find by key %d = %s\n", 0, tree.find(0).getName());
 
 		System.out.println();
 		
@@ -44,7 +69,7 @@ public class Chapter7 {
 		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
 		System.out.printf("Patient priority: %s\n",medQueue);
 
-		medQueue.push(new Patient("Royce",5));
+		medQueue.push(new Patient("Ron",5));
 		System.out.printf("Patient priority: %s\n",medQueue);
 		
 		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
@@ -61,9 +86,6 @@ public class Chapter7 {
 
 		System.out.printf("Now treating patient %s.\n", medQueue.pop().getName());
 		System.out.printf("Patient priority: %s\n",medQueue);
-
-		System.out.println();
-
 	}
 	
 	public static void traverseHistoryForward(TwoWayLinkedList browserHistory) {

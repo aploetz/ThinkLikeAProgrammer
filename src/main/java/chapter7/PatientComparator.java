@@ -15,5 +15,4 @@ public class PatientComparator implements Comparator<Patient>{
 			return 0;
 		}
 	}
-
 }
