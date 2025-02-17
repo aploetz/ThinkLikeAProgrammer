@@ -1,0 +1,80 @@
+package chapter8;
+
+public class Chapter8 {
+
+	public static void main(String[] args) {
+
+		String[] players = { "Lemieux", "Jagr", "Stevens", "Tocchet", "Mullen", "Francis", "Samuelsson, U.", "Samuelsson, K.", "Murphy", "Roberts", "Tippet", "Wregget", "Barrasso" };
+		printArray(players);
+
+		String[] playersSorted = bubbleSort(players);
+		printArray(playersSorted);
+		
+		System.out.println();
+		
+		Player mario = new Player(66, "Lemieux", "Mario", "C");
+		Player kevin = new Player(25, "Stevens", "Kevin", "LW");
+		Player jaromir = new Player(68, "Jagr", "Jaromir", "RW");
+		Player larry = new Player(55, "Murphy", "Larry", "D");
+		Player ulf = new Player(5, "Samuelsson", "Ulf", "D");
+		Player tom = new Player(30, "Barrasso", "Tom", "G");
+		Player ron = new Player(10, "Francis", "Ron", "C");
+		Player joe = new Player(7, "Mullen", "Joe", "RW");
+		Player shawn = new Player(15, "McEachern", "Shawn", "LW");
+		
+		BinaryTree tree = new BinaryTree();
+		
+		tree.insert(mario);
+		tree.insert(kevin);
+		tree.insert(jaromir);
+		tree.insert(larry);
+		tree.insert(ulf);
+		tree.insert(tom);
+		tree.insert(ron);
+		tree.insert(joe);
+		tree.insert(shawn);
+		
+		System.out.println(tree.toString());
+		
+		System.out.println(tree.find("MurphyLarry").getLastName());
+	}
+	
+	private static void printArray(String[] array) {
+		for (String item : array) {
+			System.out.println(item);
+		}
+		
+		System.out.println();
+	}
+
+	private static String[] bubbleSort(String[] array) {
+		
+		// need to track whether or not we have "flipped" a pair of ints during the current pass.
+		boolean flippedAPair = false;
+		
+		//for (int idx = 0; idx < returnVal.length; idx++) {
+		int idx = 0;
+		while (flippedAPair || idx < array.length - 1) {
+			// check current array value against the next value
+			// if it's greater, then flip them
+			if (array[idx].compareTo(array[idx+1]) > 0) {
+				String temp = array[idx];
+				array[idx] = array[idx+1];
+				array[idx+1] = temp;
+				flippedAPair = true;
+			}
+		
+			idx++;
+			
+			// if we get to the end-1 of the array, and we haven't had to "flip" a pair, then it is sorted!
+			// otherwise, reset
+			if (idx >= (array.length - 1) && flippedAPair) {
+				// reset conditions
+				idx = 0;
+				flippedAPair = false;
+			}
+		}
+		
+		return array;
+	}
+}
