@@ -4,11 +4,13 @@ public class Chapter8 {
 
 	public static void main(String[] args) {
 
-		String[] players = { "Lemieux", "Jagr", "Stevens", "Tocchet", "Mullen", "Francis", "Samuelsson, U.", "Samuelsson, K.", "Murphy", "Roberts", "Tippet", "Wregget", "Barrasso" };
-		printArray(players);
+		String[] users = { "Lowell", "Jacobs", "Scott", "Tripp", "Gartman", "Francis",
+				"Samuels, B.", "Samuels, D.", "Murphy", "Roberts", "Knutson", "Woods",
+				"Banks" };
+		//printArray(users);
 
-		String[] playersSorted = bubbleSort(players);
-		printArray(playersSorted);
+		String[] usersSorted = bubbleSort(users);
+		printArray(usersSorted);
 		
 		System.out.println();
 		
@@ -53,24 +55,24 @@ public class Chapter8 {
 		boolean flippedAPair = false;
 		
 		//for (int idx = 0; idx < returnVal.length; idx++) {
-		int idx = 0;
-		while (flippedAPair || idx < array.length - 1) {
+		int index = 0;
+		while (flippedAPair || index < array.length - 1) {
 			// check current array value against the next value
 			// if it's greater, then flip them
-			if (array[idx].compareTo(array[idx+1]) > 0) {
-				String temp = array[idx];
-				array[idx] = array[idx+1];
-				array[idx+1] = temp;
+			if (array[index].compareTo(array[index + 1]) > 0) {
+				String temp = array[index];
+				array[index] = array[index + 1];
+				array[index + 1] = temp;
 				flippedAPair = true;
 			}
 		
-			idx++;
+			index++;
 			
 			// if we get to the end-1 of the array, and we haven't had to "flip" a pair, then it is sorted!
 			// otherwise, reset
-			if (idx >= (array.length - 1) && flippedAPair) {
+			if (index >= (array.length - 1) && flippedAPair) {
 				// reset conditions
-				idx = 0;
+				index = 0;
 				flippedAPair = false;
 			}
 		}
