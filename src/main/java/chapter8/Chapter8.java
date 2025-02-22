@@ -68,8 +68,9 @@ public class Chapter8 {
 		
 			index++;
 			
-			// if we get to the end-1 of the array, and we haven't had to "flip" a pair, then it is sorted!
-			// otherwise, reset
+			// if we get to the end of the array, 
+			// and we haven't had to "flip" a pair (flippedAPair == false),
+			// then it is sorted! Otherwise, reset
 			if (index >= (array.length - 1) && flippedAPair) {
 				// reset conditions
 				index = 0;
