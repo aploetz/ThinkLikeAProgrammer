@@ -1,5 +1,8 @@
 package chapter8;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree {
 
 	private Player root;
@@ -12,12 +15,28 @@ public class BinaryTree {
 		}
 	}
 	
-	public Player find(String key) {
-		return root.findByKey(key);
+	public Player find(String name) {
+		return root.findByName(name);
 	}
 	
 	public String toString() {
 		return getNodesAsString(root);
+	}
+	
+	public List<Player> toList() {
+		return getNodesAsList(root);
+	}
+	
+	private List<Player> getNodesAsList(Player node) {
+		List<Player> tempList = new ArrayList<>();
+		
+		if (node != null) {
+			tempList.addAll(getNodesAsList(node.getLeftNode()));
+			tempList.add(node);
+			tempList.addAll(getNodesAsList(node.getRightNode()));
+		}
+		
+		return tempList;
 	}
 	
 	private String getNodesAsString(Player node) {

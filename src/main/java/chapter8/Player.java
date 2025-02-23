@@ -5,6 +5,7 @@ public class Player {
 	private String lastName;
 	private String firstName;
 	private String position;
+	
 	private Player leftNode;
 	private Player rightNode;
 	
@@ -17,13 +18,13 @@ public class Player {
 	
 	public void insert(Player newNode) {
 		
-		if ((newNode.getLastName() + newNode.getFirstName()).compareTo(getFullName()) < 0) {
+		if ((newNode.getFullName()).compareTo(getFullName()) < 0) {
 			if (leftNode == null) {
 				leftNode = newNode;
 			} else {
 				leftNode.insert(newNode);
 			}
-		} else if ((newNode.getLastName() + newNode.getFirstName()).compareTo(getFullName()) > 0) {
+		} else if ((newNode.getFullName()).compareTo(getFullName()) > 0) {
 			if (rightNode == null) {
 				rightNode = newNode;
 			} else {
@@ -32,24 +33,23 @@ public class Player {
 		} else {
 			// equal -- overwrite!
 			this.jersey = newNode.getJersey();
-			this.lastName = newNode.getLastName();
-			this.firstName = newNode.getFirstName();
+			this.position = newNode.getPosition();
 		}
 	}
 	
-	public Player findByKey(String name) {
+	public Player findByName(String name) {
 		
 		if (name.compareTo(getFullName()) < 0) {
 			if (leftNode == null) {
 				return new Player(-1,"NOT FOUND", "NOT FOUND", "NF");
 			} else {
-				return leftNode.findByKey(name);
+				return leftNode.findByName(name);
 			}
 		} else if (name.compareTo(getFullName()) > 0 ) {
 			if (rightNode == null) {
 				return new Player(-1,"NOT FOUND", "NOT FOUND", "NF");
 			} else {
-				return rightNode.findByKey(name);
+				return rightNode.findByName(name);
 			}
 		} else {
 			// equal -- return this
@@ -57,8 +57,22 @@ public class Player {
 		}
 	}
 	
-	private String getFullName() {
-		return this.lastName + this.firstName;
+	public String toString() {
+		
+		StringBuilder returnVal = new StringBuilder();
+		returnVal.append(jersey);
+		returnVal.append(" ");
+		returnVal.append(firstName);
+		returnVal.append(" ");
+		returnVal.append(lastName);
+		returnVal.append(" - ");
+		returnVal.append(position);
+		
+		return returnVal.toString();
+	}
+	
+	public String getFullName() {
+		return lastName + firstName;
 	}
 	
 	public int getJersey() {
