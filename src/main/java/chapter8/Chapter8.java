@@ -11,8 +11,15 @@ public class Chapter8 {
 				"Banks" };
 		//printArray(users);
 
-		String[] usersSorted = bubbleSort(users);
-		printStringArray(usersSorted);
+		String[] usersBubbleSorted = bubbleSort(users);
+		System.out.println("Bubble Sort:");
+		printStringArray(usersBubbleSorted);
+		
+		System.out.println();
+		
+		String[] usersMergeSorted = mergeSort(users);
+		System.out.println("Merge Sort:");
+		printStringArray(usersMergeSorted);
 		
 		System.out.println();
 		
@@ -77,6 +84,66 @@ public class Chapter8 {
 				// reset conditions
 				index = 0;
 				flippedAPair = false;
+			}
+		}
+		
+		return array;
+	}
+	
+	private static String[] splitArray(String[] array, int start, int end) {
+		
+		String[] returnVal = new String[end - start];
+		int returnIndex = 0;
+		
+		for (int index = start; index < end; index++) {
+			returnVal[returnIndex] = array[index];
+			returnIndex++;
+		}
+		
+		return returnVal;
+	}
+	
+	private static String[] mergeSort(String[] array) {
+		
+		if (array.length > 1) {
+			// find middle of array
+			int middle = (array.length / 2);
+			
+			// split the array
+			String[] leftArray = splitArray(array, 0, middle);
+			String[] rightArray = splitArray(array, middle, array.length);
+			
+			// recursive call on each
+			leftArray = mergeSort(leftArray);
+			rightArray = mergeSort(rightArray);
+			
+			// initialize starting indexes
+			int leftIndex = 0;
+			int rightIndex = 0;
+			int mergedIndex = 0;
+			
+			// merge leftArray and rightArray
+			while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+				if (leftArray[leftIndex].compareTo(rightArray[rightIndex]) < 0) {
+					array[mergedIndex] = leftArray[leftIndex];
+					leftIndex++;
+				} else {
+					array[mergedIndex] = rightArray[rightIndex];
+					rightIndex++;
+				}
+				
+				mergedIndex++;
+			}
+			
+			// check for any remaining items from both arrays, and append
+			for (int index = leftIndex; index < leftArray.length; index++) {
+				array[mergedIndex] = leftArray[index];
+				mergedIndex++;
+			}
+			
+			for (int index = rightIndex; index < rightArray.length; index++) {
+				array[mergedIndex] = rightArray[index];
+				mergedIndex++;
 			}
 		}
 		
