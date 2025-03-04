@@ -6,12 +6,22 @@ public class Chapter9 {
 
 	public static void main(String[] args) {
 
-		JFrame frame = new JFrame();
+		JFrame starfieldFrame = new JFrame();
+		starfieldFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		StarfieldPanel starfieldPanel = new StarfieldPanel(1500);
+		
+		starfieldFrame.add(starfieldPanel);
+		starfieldFrame.pack();
+		starfieldFrame.setVisible(true);
+
+		
+		JFrame ballFrame = new JFrame();
+		ballFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		BallPanel ballPanel = new BallPanel(1000,800);
 		
-		frame.add(ballPanel);
-		frame.pack();
-		frame.setVisible(true);
+		ballFrame.add(ballPanel);
+		ballFrame.pack();
+		ballFrame.setVisible(true);
 	
 		ballPanel.start();
 	}

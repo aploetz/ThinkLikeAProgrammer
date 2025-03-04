@@ -30,7 +30,10 @@ public class BallPanel extends JPanel implements Runnable {
 		
 		this.panelThread = Thread.ofVirtual().unstarted(this);
 		
-		ball = new Ball(50, 10, randomInts.nextInt(0,width), randomInts.nextInt(0,height), Color.CYAN);
+		ball = new Ball(50, 10,
+				randomInts.nextInt(0,width),
+				randomInts.nextInt(0,height),
+				Color.CYAN);
 	}
 	
 	@Override
@@ -60,6 +63,8 @@ public class BallPanel extends JPanel implements Runnable {
 		
 		g2.setColor(ball.getColor());
 		g2.fillOval(ball.getxCoord(), ball.getyCoord(), ball.getSize(), ball.getSize());
+		
+		g2.dispose();
 		
 	}
 
