@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class StarfieldPanel extends JPanel {
 		this.stars = stars;
 		
 		this.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-		this.setBackground(Color.black);
+		this.setBackground(Color.BLACK);
 		this.setFocusable(true);
 	
 	}
@@ -36,11 +37,9 @@ public class StarfieldPanel extends JPanel {
 		for (int starCounter = 0; starCounter < stars; starCounter++) {
 			int x = randomInts.nextInt(0,WIDTH);
 			int y = randomInts.nextInt(0,HEIGHT);
-			//g2.fillRect(x, y, x + 5, y + 5);
 			g2.drawLine(x, y, x+1, y+1);
 		}
 		
-		// green square
 		g2.fillOval(600, 100, 100, 100);
 		g2.setColor(Color.BLACK);
 		g2.fillOval(580, 90, 100, 100);
