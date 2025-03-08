@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+
 import java.util.Random;
 
 import javax.swing.JPanel;
@@ -60,7 +61,7 @@ public class BallPanel extends JPanel implements Runnable {
 		
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D)g;
-		
+			
 		g2.setColor(ball.getColor());
 		g2.fillOval(ball.getxCoord(), ball.getyCoord(), ball.getSize(), ball.getSize());
 		
