@@ -8,7 +8,7 @@ public class Chapter9MultipleBalls {
 		
 		JFrame ballFrame = new JFrame();
 		ballFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		MultipleBallPanel ballPanel = new MultipleBallPanel(1000,800,10);
+		MultipleBallPanel ballPanel = new MultipleBallPanel(1000,800,20);
 		
 		ballFrame.add(ballPanel);
 		ballFrame.pack();

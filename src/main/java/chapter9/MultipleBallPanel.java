@@ -91,12 +91,13 @@ public class MultipleBallPanel extends JPanel implements Runnable {
 	
 	private void update() {
 		for (Ball ball : ballList) {
-			checkCollision(ball);
+			checkWallCollision(ball);
+			checkBallCollision(ball);
 			ball.update();
 		}
 	}
 	
-	private void checkCollision(Ball ball) {
+	private void checkWallCollision(Ball ball) {
 		
 		// check for panel edge/wall collision
 		if (ball.getxCoord() <= 0 && ball.isMovingLeft()) {
@@ -110,7 +111,9 @@ public class MultipleBallPanel extends JPanel implements Runnable {
 		} else if (ball.getyCoord() + ball.getSize() >= height && !ball.isMovingUp()) {
 			ball.setMovingUp(true);
 		}
-		
+	}
+	
+	private void checkBallCollision(Ball ball) {
 		// check for collision with other balls
 		for (Ball otherBall : ballList) {
 			
