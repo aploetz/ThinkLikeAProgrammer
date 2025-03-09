@@ -31,7 +31,7 @@ public class MultipleBallPanel extends JPanel implements Runnable {
 		this.height = height;
 		
 		this.setPreferredSize(new Dimension(width, height));
-		this.setBackground(Color.black);
+		this.setBackground(Color.BLACK);
 		this.setFocusable(true);
 		
 		this.panelThread = Thread.ofVirtual().unstarted(this);
