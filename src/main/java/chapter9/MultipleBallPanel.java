@@ -85,7 +85,6 @@ public class MultipleBallPanel extends JPanel implements Runnable {
 		int green = randomInts.nextInt(0, 256);
 		int blue = randomInts.nextInt(0, 256);
 		
-		
 		return new Color(red,green,blue);
 	}
 	
