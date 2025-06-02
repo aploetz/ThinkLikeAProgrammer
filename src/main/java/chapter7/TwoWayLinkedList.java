@@ -12,12 +12,29 @@ public class TwoWayLinkedList {
 			HistoryItem currentLast = lastHistoryItem;
 			currentLast.setNextHistoryItem(histItem);
 			histItem.setPreviousHistoryItem(currentLast);
+			historyItemCount = countHistoryItemsToCurrent(histItem);
 		} else {
 			firstHistoryItem = histItem;
+			historyItemCount = 1;
 		}
 		
 		lastHistoryItem = histItem;
-		historyItemCount++;
+	}
+	
+	private int countHistoryItemsToCurrent(HistoryItem current) {
+		int itemCount = 1;
+		HistoryItem pointer = firstHistoryItem;
+		
+		while (pointer != null) {
+			itemCount++;
+			pointer = pointer.getNextHistoryItem();
+			
+			if (pointer == current) {
+				break;
+			}
+		}
+		
+		return itemCount;
 	}
 	
 	public HistoryItem getFirstHistoryItem() {
@@ -30,5 +47,5 @@ public class TwoWayLinkedList {
 	
 	public int getHistoryItemCount() {
 		return this.historyItemCount;
-	}	
+	}
 }

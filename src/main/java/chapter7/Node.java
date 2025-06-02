@@ -7,6 +7,7 @@ public class Node {
 	
 	private Node leftChild;
 	private Node rightChild;
+	private Node parent;
 	
 	public Node(int key, String name) {
 		this.key = key;
@@ -17,12 +18,14 @@ public class Node {
 		
 		if (newNode.getKey() < this.key) {
 			if (leftChild == null) {
+				newNode.setParent(this);
 				leftChild = newNode;
 			} else {
 				leftChild.insert(newNode);
 			}
 		} else if (newNode.getKey() > this.key) {
 			if (rightChild == null) {
+				newNode.setParent(this);
 				rightChild = newNode;
 			} else {
 				rightChild.insert(newNode);
@@ -52,7 +55,7 @@ public class Node {
 			return this;
 		}
 	}
-
+	
 	public int getKey() {
 		return key;
 	}
@@ -67,5 +70,29 @@ public class Node {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Node getLeftChild() {
+		return leftChild;
+	}
+	
+	public void setLeftChild(Node leftChild) {
+		this.leftChild = leftChild;
+	}
+	
+	public Node getRightChild() {
+		return rightChild;
+	}
+	
+	public void setRightChild(Node rightChild) {
+		this.rightChild = rightChild;
+	}
+	
+	public Node getParent() {
+		return parent;
+	}
+	
+	public void setParent(Node parent) {
+		this.parent = parent;
 	}
 }

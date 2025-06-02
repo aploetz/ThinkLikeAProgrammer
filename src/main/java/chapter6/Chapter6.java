@@ -99,6 +99,19 @@ public class Chapter6 {
 		System.out.printf("The toll for the %s %s is $%s\n", cycle1.getMake(), cycle1.getModel(),
 				computeToll(cycle1));
 
+		System.out.println();
+
+		String plate1 = car1.getLicensePlate();
+		String plate2 = car2.getLicensePlate();
+		String plate3 = car3.getLicensePlate();
+		
+		Pattern platePattern = Pattern.compile("^[A-Z]{3}[-]{1}[0-9]{3}$");
+		
+		System.out.printf("is %s a valid license plate? %b\n", plate1, platePattern.matcher(plate1).matches());
+		System.out.printf("is %s a valid license plate? %b\n", plate2, platePattern.matcher(plate2).matches());
+		System.out.printf("is %s a valid license plate? %b\n", plate3, platePattern.matcher(plate3).matches());
+		
+		
 	}
 	
 	private static boolean isValidPhoneNumber(String number, Pattern pattern) {
@@ -117,6 +130,26 @@ public class Chapter6 {
 		return addressMatcher.matches();
 	}
 
+	private static String whichKindOfNumber(Object number) {
+		
+		switch (number) {
+			case Integer i:
+				return "Integer";
+			case Float f:
+				return "Float";
+			case Double d:
+				return "Double";
+			case int i:
+				return "Integer";
+			case float f:
+				return "Float";
+			case double d:
+				return "Double";
+			default:
+				return "Not an integer, float, or double";
+		}
+	}
+	
 	private static BigDecimal computeToll(MotorVehicle vehicle) {
 		
 		switch (vehicle) {

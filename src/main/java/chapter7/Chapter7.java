@@ -40,6 +40,10 @@ public class Chapter7 {
 		tree.insert(fruit4);
 		tree.insert(fruit5);
 		
+		System.out.println("In-order traversal of the binary tree:");
+		tree.traverse(); // start with the root node (apple)
+		System.out.println();
+		
 		// find id 1 - banana
 		System.out.printf("Find by key %d = %s\n", 1, tree.find(1).getName());
 		// find id 2 - orange
@@ -49,6 +53,11 @@ public class Chapter7 {
 		// find id 0 - apple
 		System.out.printf("Find by key %d = %s\n", 0, tree.find(0).getName());
 
+		System.out.println();
+		
+		// delete id 2 - orange
+		tree.deleteByKey(2);
+		tree.traverse();
 		System.out.println();
 		
 		Patient[] patients = new Patient[5];

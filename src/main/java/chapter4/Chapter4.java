@@ -1,5 +1,8 @@
 package chapter4;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Chapter4 {
 
 	public static void main(String[] args) {
@@ -83,18 +86,42 @@ public class Chapter4 {
 
 		System.out.printf("The %d bit of %d is %b\n", 4, 12, isBitFlipped(12, 4));
 		System.out.printf("The %d bit of %d is %b\n", 2, 12, isBitFlipped(12, 2));
+		System.out.printf("The %d bit of %d is %b\n", 4, 12, isBitFlipped2(12, 4));
+		System.out.printf("The %d bit of %d is %b\n", 2, 12, isBitFlipped2(12, 2));
+		System.out.printf("The %d bit of %d is %b\n", 8, 12, isBitFlipped2(12, 8));
+		System.out.printf("The %d bit of %d is %b\n", 1, 13, isBitFlipped2(13, 1));
+		System.out.printf("The %d bit of %d is %b\n", 2, 13, isBitFlipped2(13, 2));
 		
 		System.out.println();
 
-		System.out.printf("Error# %d - %s", 2, getErrorMessages(2));
-		System.out.printf("Error# %d - %s", 8, getErrorMessages(8));
-		System.out.printf("Error# %d - %s", 10, getErrorMessages(10));
-		System.out.printf("Error# %d - %s", 5, getErrorMessages(5));
+		System.out.printf("Error# %d - %s\n", 2, getErrorMessages(2));
+		System.out.printf("Error# %d - %s\n", 8, getErrorMessages(8));
+		System.out.printf("Error# %d - %s\n", 10, getErrorMessages(10));
+		System.out.printf("Error# %d - %s\n", 5, getErrorMessages(5));
 		
 		System.out.println();
+		
+		System.out.println("5 + 7 = " + add(5, 7));
+		
+		System.out.println("8 mod 2 = " + modulo(8, 2));
+		System.out.println("7 mod 2 = " + modulo(7, 2));
+		System.out.println("9 mod 3 = " + modulo(9, 3));
+		System.out.println("8 mod 3 = " + modulo(8, 3));
+		System.out.println("11 mod 5 = " + modulo(11, 5));
 		
 	}
 
+	public static int add(int numX, int numY) {
+	
+		int returnVal = numX;
+		
+		for (int counter = 0; counter < numY; counter++) {
+			returnVal++;
+		}
+		
+		return returnVal;
+	}
+	
 	public static int multiply(int numX, int numY) {
 
 		// if either numX or numY are 0, then short-circuit the method
@@ -170,6 +197,20 @@ public class Chapter4 {
 		return quotient;
 	}
 	
+	private static int modulo(int dividend, int divisor) {
+		
+		int absoluteDividend = abs(dividend);
+		int absoluteDivisor = abs(divisor);
+		
+		int total = 0;
+		
+		while ((total + absoluteDivisor) <= absoluteDividend) {
+			total = total + absoluteDivisor;
+		}
+		
+		return subtract(absoluteDividend, total);
+	}
+	
 	private static boolean isEven(int number) {
 		
 		if (number % 2 == 0) {
@@ -232,6 +273,26 @@ public class Chapter4 {
 		return returnVal;
 	}
 	
+	public static boolean isBitFlipped2(int number, int bit) {
+		
+		String num = Integer.toBinaryString(number);
+		int length = num.length();
+		
+		for (int index = 0; index < length; index++) {
+			if (Math.pow(2, index) == bit) {
+				// if the index is equal to the bit we are looking for
+				char currentChar = num.charAt(length - (index + 1));
+				if (currentChar == '1') {
+					return true; // bit is flipped
+				} else {
+					return false; // bit is not flipped				
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 	private static String getErrorMessages(int errorNumber) {
 		
 		final int UNKNOWN_ERROR = 1;
@@ -239,36 +300,37 @@ public class Chapter4 {
 		final int INVALID_DATA_TYPE = 4;
 		final int PARSING_ERROR = 8;
 
-		StringBuilder returnVal = new StringBuilder();
+		//StringBuilder returnVal = new StringBuilder();
+		List<String> returnVal = new ArrayList<>();
 		
 		if (isBitFlipped(errorNumber, PARSING_ERROR)) {
-			returnVal.append("PARSING_ERROR, ");
+			returnVal.add("PARSING_ERROR");
 		}
 
 		if (isBitFlipped(errorNumber, INVALID_DATA_TYPE)) {
-			returnVal.append("INVALID_DATA_TYPE, ");
+			returnVal.add("INVALID_DATA_TYPE");
 		}
 
 		if (isBitFlipped(errorNumber, DIVIDE_BY_ZERO_ERROR)) {
-			returnVal.append("DIVIDE_BY_ZERO_ERROR, ");
+			returnVal.add("DIVIDE_BY_ZERO_ERROR");
 		}
 
 		if (isBitFlipped(errorNumber, UNKNOWN_ERROR)) {
-			returnVal.append("UNKNOWN_ERROR, ");
+			returnVal.add("UNKNOWN_ERROR");
 		}
 
 		// remove last comma and add a line break
-		if (returnVal.length() > 0) {
-			if (returnVal.charAt(returnVal.length() - 2) == ',') {
-				return returnVal.substring(0,returnVal.length() - 2) + "\n";
-			} else {
-				returnVal.append("\n");
-			}
-		} else {
-			returnVal.append("\n");
-		}
+		//if (returnVal.length() > 0) {
+		//	if (returnVal.charAt(returnVal.length() - 2) == ',') {
+		//		return returnVal.substring(0,returnVal.length() - 2) + "\n";
+		//	} else {
+		//		returnVal.append("\n");
+		//	}
+		//} else {
+		//	returnVal.append("\n");
+		//}
 		
-		return returnVal.toString();
+		return String.join(", ", returnVal);
 	}
 	
 	public static long computeFibonacci(long number) {

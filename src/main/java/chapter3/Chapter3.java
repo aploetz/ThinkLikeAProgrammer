@@ -90,6 +90,24 @@ public class Chapter3 {
 		System.out.println(getFullTeamName(hockeyTeam5));
 		
 		System.out.println();
+		
+		// Given the String of “ATARI 2600 CARTRIDGE GAMES” how could you initialize a new String
+		// variable named model to the “2600” part of the String?
+		
+		String string = "ATARI 2600 CARTRIDGE GAMES";
+		int startIndex = string.indexOf(" ") + 1;
+		String model = string.substring(startIndex, startIndex + 4);
+		System.out.printf("The model is: %s\n", model);
+		
+		// Given the String “console: Sega Genesis, game: NHL 94, year: 1993”, write a method to 
+		// retrieve the value of the game property. 
+		
+		String gameData = "console: Sega Genesis, game: NHL 94, year: 1993";
+		String[] columns = gameData.split("[,]");
+		int gameIndex = columns[1].indexOf(":") + 2;
+		String game = columns[1].substring(gameIndex).trim();
+		System.out.printf("The game is: %s\n", game);
+		
 	}
 	
 	private static String reverseString(String inputStr) {
