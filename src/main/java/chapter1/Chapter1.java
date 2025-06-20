@@ -53,7 +53,7 @@ public class Chapter1 {
 	
 	private static void fizzBuzz(int maxCount) {
 		
-		for (int counter = 1; counter < maxCount + 1; counter++) {
+		for (int counter = 1; counter <= maxCount; counter++) {
 			if (counter % 3 == 0 && counter % 5 == 0) {
 				System.out.print("FizzBuzz = ");
 				System.out.println(counter);
@@ -171,7 +171,7 @@ public class Chapter1 {
 		System.out.println("0 entered, exiting.");
 	}
 	
-	public static void readName(Scanner inputScanner) {
+	private static void readName(Scanner inputScanner) {
 		
 		//Scanner inputScanner = new Scanner(System.in);
 		System.out.println("What is your name?");
