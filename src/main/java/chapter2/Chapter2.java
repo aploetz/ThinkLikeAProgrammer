@@ -188,10 +188,11 @@ public class Chapter2 {
 
 		List<String> currentUsers = new ArrayList<>();
 
-		try {
+		try (BufferedReader reader =
+				new BufferedReader(new FileReader("data/passwordU.csv"))) {
 			
 			// open file reader
-			BufferedReader reader = new BufferedReader(new FileReader("data/passwordU.csv"));
+			
 			String line = reader.readLine();
 			
 			while (line != null) {
@@ -209,14 +210,13 @@ public class Chapter2 {
 			ioex.printStackTrace();
 		}
 		
-		
-		try {
+		try (BufferedWriter writer =
+				new BufferedWriter(new FileWriter("data/passwordU.csv",true))) {
 
 			if (currentUsers.contains(username)) {
 				System.out.printf("User %s exists, credentials not written.\n", username);
 			} else {
 				// open file with append == true
-				BufferedWriter writer = new BufferedWriter(new FileWriter("data/passwordU.csv",true));
 	
 		    	// Hash the password
 		    	BCryptPasswordEncoder pEncoder = new BCryptPasswordEncoder();
