@@ -139,12 +139,6 @@ public class Chapter6 {
 				return "Float";
 			case Double d:
 				return "Double";
-			case int i:
-				return "Integer";
-			case float f:
-				return "Float";
-			case double d:
-				return "Double";
 			default:
 				return "Not an integer, float, or double";
 		}

@@ -141,14 +141,15 @@ public class Chapter3 {
 		// remove leading and trailing spaces
 		String number = phoneNumber.trim();
 		// remove extra characters () -.
-		number = number.replace("-","");
-		number = number.replace(".","");
-		number = number.replace(")","");
-		number = number.replace("(","");
-		number = number.replace(" ","");
+		//number = number.replace("-","");
+		//number = number.replace(".","");
+		//number = number.replace(")","");
+		//number = number.replace("(","");
+		//number = number.replace(" ","");
+		number = number.replaceAll("\\D", "");
 		
 		// at this point, number should be 10 characters, otherwise number is invalid
-		if (number.length() == 10) {
+		if (number.length() == 10 ) {
 			// AREACODE-PREFIX-LINENUMBER
 			String areaCode = number.substring(0,3);
 			String prefixCode = number.substring(3,6);
