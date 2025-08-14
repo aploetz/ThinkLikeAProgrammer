@@ -97,7 +97,7 @@ public class Chapter7 {
 		System.out.printf("Patient priority: %s\n",medQueue);
 	}
 	
-	public static void traverseHistoryForward(TwoWayLinkedList browserHistory) {
+	private static void traverseHistoryForward(TwoWayLinkedList browserHistory) {
 		
 		System.out.printf("\nTraversing browser history forward over %d items:\n",
 				browserHistory.getHistoryItemCount());

@@ -152,9 +152,9 @@ public class Chapter6 {
 			case Car c:
 				return new BigDecimal(4);
 			case Truck t:
-				int axels = t.getAxels();
-				if (axels > 2) {
-					return TOLL_PER_AXLE.multiply(BigDecimal.valueOf(axels))
+				int axles = t.getAxles();
+				if (axles > 2) {
+					return TOLL_PER_AXLE.multiply(BigDecimal.valueOf(axles))
 							.setScale(2, RoundingMode.HALF_EVEN);
 				} else {
 					return new BigDecimal(4);

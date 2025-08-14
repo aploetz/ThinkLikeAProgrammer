@@ -2,24 +2,24 @@ package chapter6;
 
 public class Truck extends MotorVehicle {
 
-	private int axels;
+	private int axles;
 	private int cargoCapLbs;
 	
 	public Truck(String licensePlate, String make, String model, 
-			int axels, int cargoCapLbs) {
+			int axles, int cargoCapLbs) {
 		this.setLicensePlate(licensePlate);
 		this.setMake(make);
 		this.setModel(model);
-		this.axels = axels;
+		this.axles = axles;
 		this.cargoCapLbs = cargoCapLbs;
 	}
 		
-	public int getAxels() {
-		return axels;
+	public int getAxles() {
+		return axles;
 	}
 	
-	public void setAxels(int axels) {
-		this.axels = axels;
+	public void setAxles(int axles) {
+		this.axles = axles;
 	}
 
 	public int getCargoCapLbs() {
